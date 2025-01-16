@@ -1,0 +1,25 @@
+CI -github actions
+
+NOW
+- [x] css? tailwind + js objects.
+- [] todo edit
+- [] tests need ids attributes that doesn't goes to prod build
+- [] api call with redux
+  - dev mode: mock api VS intercept api calls?
+
+--------------------------
+IMPLEMENT
+flow v1:
+  # VIEW table with mocked api
+  # implement user and admin
+  # crud inventory = table (crud controls)
+  # build up (filters etc)
+  # design
+
+--------------------------
+FEATURES
+rollback
+multi-lingual (i18n)
+accessibility (a11y)
+observability (o11y)
+RTK for queries (sync api + cache?)
