@@ -1,38 +1,35 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from '../../redux/hook';
 
-import { removeTodo, toggleTodo } from './todoSlice';
+import { removeTodo, toggleTodo, updateTodo } from './todoSlice';
 import { TodoForm } from './todoForm';
 import { Todo } from './types';
 import { styles } from './styles';
 
-// edit fx
-// TODO: write tests (test ids, auto rm from prod? eg data-testId={1})
-// TODO: mock api calls + intercept x api dev
-// TODO;' figout css lib (accessebility use on eletron)
-// dif lv of permissions
+import { Input } from '@/components/input';
+
 export function TodoList() {
   const todos = useSelector(state => state.todo.todos);
   const dispatch = useDispatch();
 
-  const [editing, setEditing] = useState(false);
+  const [name, setName] = useState('');
+  const [editing, setEditing] = useState<Todo | false>(false);
 
   const handleEdit = (item: Todo) => {
-    console.log(item.id);
+    console.log('start editing', item.id);
+    setName(item.title);
     setEditing(item);
   };
 
   const handleSave = (item: Todo) => {
-    console.log('save', item);
+    console.log('save', item, 'new name', name);
+    dispatch(updateTodo({ ...item, title: name }));
     setEditing(false);
   };
 
   return (
     <div>
-      {/* create todo form */}
       <TodoForm />
-
-      {/* TODO: edit form | or use the list to direct edit */}
 
       <ul>
         {todos.map(todo => (
@@ -41,7 +38,11 @@ export function TodoList() {
             className={`animate-fadeIn ${styles.card} ${editing?.id == todo.id && 'border-red'}`}
           >
             <div>
-              <span>{todo.title}</span>
+              {editing && todo.id == editing.id ? (
+                <Input value={name} onChange={setName} />
+              ) : (
+                <span>{todo.title}</span>
+              )}
               <span>{`${todo.completed}`}</span>
             </div>
 
