@@ -31,7 +31,6 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
-      'jsx-a11y/no-static-element-interactions': error,
     },
   }
 );

@@ -8,6 +8,8 @@ import { styles } from './styles';
 
 import { Input } from '@/components/input';
 
+// RTK query works -> onQueryStarted  / patchResult.undo()
+// TODO: optimistic state update?
 export function TodoList() {
   const todos = useSelector(state => state.todo.todos);
   const dispatch = useDispatch();
@@ -47,7 +49,7 @@ export function TodoList() {
             </div>
 
             <div>
-              <button onClick={() => dispatch(removeTodo(todo.id))}>-</button>
+              <button onClick={() => dispatch(removeTodo(todo.id))}>del</button>
 
               <button onClick={() => dispatch(toggleTodo(todo.id))}>
                 Toggle

@@ -23,3 +23,6 @@ multi-lingual (i18n)
 accessibility (a11y)
 observability (o11y)
 RTK for queries (sync api + cache?)
+
+
+PWA -> manifest + SW + assets list

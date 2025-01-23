@@ -3,3 +3,5 @@ dist
 coverage
 .eslintcache
 yarn.lock
+readme.md
+wiki.md

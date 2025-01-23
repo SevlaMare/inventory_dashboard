@@ -3,6 +3,7 @@
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
     "bradlc.vscode-tailwindcss",
-    "moalamri.inline-fold"
+    "moalamri.inline-fold",
+    "ms-playwright.playwright"
   ]
 }

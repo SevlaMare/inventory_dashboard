@@ -1,0 +1,28 @@
+don't hard-coded array indexes,
+destructured and named them appropriately,
+named the if conditions,
+moved the code inside the ifs to handlers,
+paid attention to typing
+
+// edit fx
+// TODO: write tests (test ids, auto rm from prod? eg data-testId={1})
+// TODO: mock api calls + intercept x api dev
+// TODO;' figout css lib (accessebility use on eletron)
+// dif lv of permissions
+
+
+// state is in redux, but save just after save.
+// use local state while editing
+// update the state on redux afer save, trigger render here
+
+  // 1 tap 2 writing blocks (translation + phase)
+  // accept list paste insertion
+  // table view -> show how strong each one is rn
+  order by  strongest / pagination custom selector (# pages)
+  // pick algorithm for repetition (based on articles) or custom algo
+  // dash to view progress
+  // study session with ai chatbot+audio. (require gpt api)
+
+  // classroom activity mode: scores, and compare class at end.
+
+//python -> working with big imagens (high res,pdf,...) processing on AI

@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useTheme } from '@/hooks/useTheme';
-import { styles } from './styles';
+
+import { Button } from '@/components/button';
 
 const menuRoutes = [
   { path: '/', title: 'Home' },
@@ -17,7 +18,7 @@ export function Menu() {
 
   return (
     <nav className={'flex justify-between bg-green'}>
-      <ul className={styles.items}>
+      <ul className={'flex space-x-2'}>
         {menuRoutes.map(route => (
           <li
             key={route.path}
@@ -35,10 +36,8 @@ export function Menu() {
         ))}
       </ul>
 
-      <div className={styles.items}>
-        <button className={styles.link} onClick={handleLogin}>
-          Login
-        </button>
+      <div className={''}>
+        <Button onClick={handleLogin} name={'Login'} />
 
         {/* {login ? (
           <button onClick={handleLogin}>Login</button>

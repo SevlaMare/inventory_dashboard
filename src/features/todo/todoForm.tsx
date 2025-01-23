@@ -29,7 +29,7 @@ export function TodoForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} data-testid='form'>
       <input
         type='text'
         value={title}

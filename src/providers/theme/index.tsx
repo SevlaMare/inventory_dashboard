@@ -1,5 +1,7 @@
 'use client';
 
+// USE THE PROVIDER TO AVOID FLICKER, WHEN PREFERENCE IS DARK
+
 import { createContext, useEffect, useState } from 'react';
 import { getStorageItem, setStorageItem } from '@/services/storage';
 
