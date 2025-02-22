@@ -29,7 +29,15 @@ export function Counter() {
   );
 }
 
-function Btn({ name, callback }) {
+interface BtnProps {
+  name: string;
+  callback: () => void;
+}
+interface TitleProps {
+  name: string;
+}
+
+function Btn({ name, callback }: BtnProps) {
   return (
     <button
       onClick={callback}
@@ -40,6 +48,6 @@ function Btn({ name, callback }) {
   );
 }
 
-function Title({ name }) {
+function Title({ name }: TitleProps) {
   return <h1 className='text-3xl font-bold mb-4'>{name}</h1>;
 }

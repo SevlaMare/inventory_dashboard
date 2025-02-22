@@ -1,5 +1,5 @@
 # Project
->
+> UI Template
 
 ## Requirements
 
@@ -27,7 +27,9 @@ yarn test
 ```
 
 ## Build and deploy
+```
+yarn build
+```
 
 ### Notes
-
-Last Configurations Review: Jan/2025.
+Last Review: Jan/2025.

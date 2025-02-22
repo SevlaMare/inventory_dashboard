@@ -1,19 +1,24 @@
+import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 
 // regular slices
 import { todoReducer } from '@/features/todo/todoSlice';
 import { counterReducer } from '@/features/counter/counterSlice';
 
-import { getStorageItem } from '@/service/localStorage';
 import { reduxStoreKey } from '@/utils/constants';
+import { getStorageItem, setStorageItem } from '@/service/localStorage';
+
+import { debounce } from '@/utils/debounce';
+
+const reducers = combineReducers({
+  todo: todoReducer,
+  counter: counterReducer,
+});
 
 export const store = configureStore({
   devTools: true,
-  reducer: {
-    todo: todoReducer,
-    counter: counterReducer,
-  },
-  preloadedState: getStorageItem(reduxStoreKey), // fallback is intialState from reducer
+  reducer: reducers,
+  preloadedState: getStorageItem(reduxStoreKey), // fallback is intialState from reducers
   middleware: getDefaultMiddleware => {
     return getDefaultMiddleware()
       .concat
@@ -22,29 +27,27 @@ export const store = configureStore({
   },
 });
 
-// ----------tests
-// function toObservable(store) {
-//   return {
-//     subscribe({ onNext }) {
-//       const dispose = store.subscribe(() => onNext(store.getState()));
-//       onNext(store.getState());
-//       return { dispose };
-//     },
-//   };
-// }
+// TODO: extract this action dispatch listener.
+store.subscribe(() => {
+  // TODO: debounce: reset every action dispatch, will save only after x ms of inactivity.
+  setStorageItem(reduxStoreKey, store.getState());
+});
 
-// // listener to persist state on every action dispatch
-// store.subscribe(
-//   setStorageItem()
-//   debounce(() => {
-//     saveState(store.getState());
-//   }, 800)
-// );
+// ---------- debug -------------
+function toObservable(store) {
+  return {
+    subscribe({ onNext }) {
+      const dispose = store.subscribe(() => onNext(store.getState()));
+      onNext(store.getState());
+      return { dispose };
+    },
+  };
+}
 
-// const observable = toObservable(store);
-
-// observable.subscribe({
-//   onNext: state => {
-//     console.log('New state:', state);
-//   },
-// });
+const observable = toObservable(store);
+observable.subscribe({
+  onNext: state => {
+    // action is dispatched
+    console.log('New state:', state);
+  },
+});

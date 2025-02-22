@@ -38,5 +38,9 @@ I -setup
 II - persist store
   use a listener to subscribe to changes (actions dipacth), works like autosave.
   preloadedState -> in the store, it will fallback to reducers on undefined.
+    preloadedState: getStorageItem(reduxStoreKey),
 
 -------------
+concepts
+  IMMUTABILITY: every change on state, generate a new object, not a modified one.
+    since every new state is a whole new obj, it can be used to keep a history stack.
