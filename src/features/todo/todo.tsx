@@ -29,40 +29,42 @@ export function TodoList() {
     setEditing(false);
   };
 
+  const renderInput = () => <Input value={name} onChange={setName} />;
+
+  const renderTitle = title => <span>{title}</span>;
+
   return (
     <div>
       <TodoForm />
 
       <ul>
-        {todos.map(todo => (
-          <li
-            key={todo.id}
-            className={`animate-fadeIn ${styles.card} ${editing?.id == todo.id && 'border-red'}`}
-          >
-            <div>
-              {editing && todo.id == editing.id ? (
-                <Input value={name} onChange={setName} />
-              ) : (
-                <span>{todo.title}</span>
-              )}
-              <span>{`${todo.completed}`}</span>
-            </div>
+        {todos.map(todo => {
+          const { title, id, completed } = todo;
+          const isEditing = editing && id == editing.id;
 
-            <div>
-              <button onClick={() => dispatch(removeTodo(todo.id))}>del</button>
+          return (
+            <li
+              key={todo.id}
+              className={`animate-fadeIn ${styles.card} ${editing?.id == todo.id && 'border-red'}`}
+            >
+              <div>
+                {isEditing ? renderInput() : renderTitle(title)}
+                <span>{`${completed}`}</span>
+              </div>
 
-              <button onClick={() => dispatch(toggleTodo(todo.id))}>
-                Toggle
-              </button>
+              <div>
+                <button onClick={() => dispatch(removeTodo(id))}>del</button>
+                <button onClick={() => dispatch(toggleTodo(id))}>Toggle</button>
 
-              {editing && editing.id == todo.id ? (
-                <button onClick={() => handleSave(todo)}>Save</button>
-              ) : (
-                <button onClick={() => handleEdit(todo)}>Edit</button>
-              )}
-            </div>
-          </li>
-        ))}
+                {isEditing ? (
+                  <button onClick={() => handleSave(todo)}>Save</button>
+                ) : (
+                  <button onClick={() => handleEdit(todo)}>Edit</button>
+                )}
+              </div>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

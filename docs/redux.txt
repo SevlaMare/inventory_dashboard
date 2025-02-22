@@ -1,0 +1,32 @@
+I -setup
+1 inject redux (aka state machine)
+  ReduxProvider, comes built-in, so just wrap the app. (main.tsx)
+  the provider receive the store (state object with default values)
+
+2 define the STORE
+  aggregate the REDUCERs
+  inject middlewares (eg for async state changes handling)
+
+3 create SLICES by features
+  define the initial state
+  define REDUCERs (functions that modify the state for this feature)
+  export the actions (name operations to modify the state)
+  export the reducer (to be injected in the store)
+-------------
+II - persist store (subscribe to changes (autosave) or manual) + 
+
+
+-------------
+III - making a new feature
+1 create the feature component, inject in a page.
+  optional don't use redux yet. make it work then extract.
+
+2 create SLICE: 
+  new file, copy template
+  rename actions/exports
+  create reducers fxs
+  import slicer on redux store
+
+3 from component, import the slice to apply the reducers 
+  dispatch actions to peform state changes.
+-------------

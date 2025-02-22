@@ -3,7 +3,7 @@
 // USE THE PROVIDER TO AVOID FLICKER, WHEN PREFERENCE IS DARK
 
 import { createContext, useEffect, useState } from 'react';
-import { getStorageItem, setStorageItem } from '@/services/storage';
+import { getStorageItem, setStorageItem } from '@/service/localStorage';
 
 const THEME_STORE_KEY = 'THME101';
 

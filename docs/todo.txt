@@ -1,15 +1,16 @@
-don't hard-coded array indexes,
-destructured and named them appropriately,
-named the if conditions,
-moved the code inside the ifs to handlers,
-paid attention to typing
+remind
+  name the if conditions.
+  move the code inside the ifs to handlers.
+  paid attention to typing.
+  don't hard-coded array indexes.
+  destructured and named them appropriately.
+
 
 // edit fx
 // TODO: write tests (test ids, auto rm from prod? eg data-testId={1})
 // TODO: mock api calls + intercept x api dev
 // TODO;' figout css lib (accessebility use on eletron)
 // dif lv of permissions
-
 
 // state is in redux, but save just after save.
 // use local state while editing

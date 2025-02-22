@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { isEmailValid, isPasswordValid } from '../helpers/validation';
+import { isEmailValid, isPasswordValid } from '../utils/validation';
 
 describe('isPasswordValid', () => {
   it('returns false for null password', () => {

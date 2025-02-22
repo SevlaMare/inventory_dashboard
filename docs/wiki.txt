@@ -26,3 +26,7 @@ RTK for queries (sync api + cache?)
 
 
 PWA -> manifest + SW + assets list
+------------
+
+redux sync w/ local storage > problem with race condition.
+  when autosave on.

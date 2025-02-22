@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getStorageItem, setStorageItem } from '@/services/storage';
-import { Logger } from '@/services/logger';
+import { getStorageItem, setStorageItem } from '@/service/localStorage';
+import { Logger } from '@/service/logger';
 
 // TODO: sync with server
 export function useLocalStorage<T>(

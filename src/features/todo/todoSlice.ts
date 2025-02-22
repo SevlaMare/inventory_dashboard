@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Todo, TodosState } from './types';
 import { v4 as uuidv4 } from 'uuid';
 
+// TODO: local storage retrival try
 const mockTodos = [
   { id: '1', title: 'api call', completed: false },
   { id: '2', title: 'persist on local storage', completed: false },

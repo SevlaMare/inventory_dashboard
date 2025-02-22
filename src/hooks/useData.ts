@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { fetchRetry } from '@/helpers/fetch';
+import { fetchRetry } from '@/utils/fetch';
 
 export function useData<T>(endpoint: string): {
   data: T[];
