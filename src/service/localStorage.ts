@@ -22,10 +22,10 @@ export function setStorageItem<T>(storeKey: string, state: T): void {
   }
 }
 
-export function cleanState() {
+export function cleanStorage() {
   window.localStorage.clear();
 }
 
-export function removeStateItem(key: string): void {
+export function removeStorageItem(key: string): void {
   window.localStorage.removeItem(key);
 }

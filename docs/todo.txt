@@ -1,11 +1,3 @@
-remind
-  name the if conditions.
-  move the code inside the ifs to handlers.
-  paid attention to typing.
-  don't hard-coded array indexes.
-  destructured and named them appropriately.
-
-
 // edit fx
 // TODO: write tests (test ids, auto rm from prod? eg data-testId={1})
 // TODO: mock api calls + intercept x api dev

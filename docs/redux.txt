@@ -17,6 +17,8 @@ III - making a new feature
       useSelector
     and setCount becomes: with the action/reducer name as argument:
       useDispatch(<action>)
+  note that all the logic to modify the state, must live in the reducer (centralized!)
+  and the handlers are just forwarding the params, and the reducers take care of it.
 -------------
 I -setup
 1 inject redux (aka state machine)
@@ -33,7 +35,8 @@ I -setup
   export the actions (name operations to modify the state)
   export the reducer (to be injected in the store)
 -------------
-II - persist store (subscribe to changes (autosave) or manual) + 
-
+II - persist store
+  use a listener to subscribe to changes (actions dipacth), works like autosave.
+  preloadedState -> in the store, it will fallback to reducers on undefined.
 
 -------------

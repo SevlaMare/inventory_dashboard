@@ -1,11 +1,15 @@
+guidelines
+  name the if conditions (use variables).
+  move the code inside the ifs to HANDLERs.
+  paid attention to TYPING.
+  don't hard-coded array INDEXEs.
+  destructured and named them appropriately.
+
+--------------------------
 CI -github actions
 
 NOW
-- [x] css? tailwind + js objects.
-- [] todo edit
-- [] tests need ids attributes that doesn't goes to prod build
-- [] api call with redux
-  - dev mode: mock api VS intercept api calls?
+- dev mode: mock api VS intercept api calls?
 
 --------------------------
 IMPLEMENT
@@ -23,10 +27,7 @@ multi-lingual (i18n)
 accessibility (a11y)
 observability (o11y)
 RTK for queries (sync api + cache?)
-
-
 PWA -> manifest + SW + assets list
 ------------
-
 redux sync w/ local storage > problem with race condition.
   when autosave on.
