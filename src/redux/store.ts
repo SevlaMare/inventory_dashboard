@@ -1,14 +1,16 @@
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 
-// regular slices
+// slices
 import { todoReducer } from '@/features/todo/todoSlice';
 import { counterReducer } from '@/features/counter/counterSlice';
 
 import { reduxStoreKey } from '@/utils/constants';
 import { getStorageItem, setStorageItem } from '@/service/localStorage';
 
-import { debounce } from '@/utils/debounce';
+import { Logger } from '@/service/logger';
+
+// import { debounce } from '@/utils/debounce';
 
 const reducers = combineReducers({
   todo: todoReducer,
@@ -27,9 +29,9 @@ export const store = configureStore({
   },
 });
 
-// TODO: extract this action dispatch listener.
+// action dispatch listener.
 store.subscribe(() => {
-  // TODO: debounce: reset every action dispatch, will save only after x ms of inactivity.
+  // TODO: debounce: reset on every action dispatch, will save only after x ms of inactivity.
   setStorageItem(reduxStoreKey, store.getState());
 });
 
@@ -48,6 +50,6 @@ const observable = toObservable(store);
 observable.subscribe({
   onNext: state => {
     // action is dispatched
-    console.log('New state:', state);
+    Logger('New state:', state, null);
   },
 });

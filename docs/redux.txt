@@ -20,7 +20,7 @@ III - making a new feature
   note that all the logic to modify the state, must live in the reducer (centralized!)
   and the handlers are just forwarding the params, and the reducers take care of it.
 -------------
-I -setup
+I - setup
 1 inject redux (aka state machine)
   ReduxProvider, comes built-in, so just wrap the app. (main.tsx)
   the provider receive the store (state object with default values)

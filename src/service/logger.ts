@@ -1,5 +1,6 @@
 export function Logger(
   message: string = '',
+  obj: object | null = null,
   error: Error | null = null,
   type: 'info' | 'warn' | 'error' = 'info'
 ): void {
@@ -7,5 +8,11 @@ export function Logger(
     console.error(`Error: ${error.message}`);
   }
 
-  console[type](`Stack Trace: ${message}`);
+  // Log the message
+  console[type](message);
+
+  // Log the object if provided
+  if (obj) {
+    console[type](obj);
+  }
 }
