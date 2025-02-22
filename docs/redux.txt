@@ -1,3 +1,23 @@
+III - making a new feature
+1 create the feature component, inject in a page.
+  optional don't use redux yet. make it work then extract.
+
+2 create SLICE: (new feature)
+  new file, copy template
+  rename actions/exports
+  create reducers fxs
+  import slicer on redux store.
+
+3 from component, import the slice and apply the reducers. (replace handlers)
+  to call the reducers, import dispatcher + slicer.
+  dispatch need to be instanciated, it will link w redux store living on provider.
+  to use the useDispatch pass the ACTION desired (eg get / set).
+    if react state was: const [count, setCount] = useState(0);
+    then count would be:
+      useSelector
+    and setCount becomes: with the action/reducer name as argument:
+      useDispatch(<action>)
+-------------
 I -setup
 1 inject redux (aka state machine)
   ReduxProvider, comes built-in, so just wrap the app. (main.tsx)
@@ -16,17 +36,4 @@ I -setup
 II - persist store (subscribe to changes (autosave) or manual) + 
 
 
--------------
-III - making a new feature
-1 create the feature component, inject in a page.
-  optional don't use redux yet. make it work then extract.
-
-2 create SLICE: 
-  new file, copy template
-  rename actions/exports
-  create reducers fxs
-  import slicer on redux store
-
-3 from component, import the slice to apply the reducers 
-  dispatch actions to peform state changes.
 -------------

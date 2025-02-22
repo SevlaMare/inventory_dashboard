@@ -22,8 +22,10 @@ const counterSlice = createSlice({
   },
 });
 
-// Explicitly Export Actions
+// Explicitly Export ACTIONs
+// to be used inside the dispatchers (since many actions can have same name, manual import).
 export const { increment, decrement, reset } = counterSlice.actions;
 
-// Explicitly Export Reducers
+// Explicitly Export REDUCERs
+// to be injected in the redux store (can be on different levels in the application).
 export const counterReducer = counterSlice.reducer;

@@ -18,6 +18,3 @@ export const store = configureStore({
       ();
   },
 });
-
-// https://dev.to/igorovic/simplest-way-to-persist-redux-state-to-localstorage-e67
-// https://stackblitz.com/edit/github-sp72vl?file=pages%2F_app.tsx,app%2Fstore.ts
