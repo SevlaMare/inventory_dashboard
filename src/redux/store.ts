@@ -9,12 +9,14 @@ import { reduxStoreKey } from '@/utils/constants';
 import { getStorageItem, setStorageItem } from '@/service/localStorage';
 
 import { Logger } from '@/service/logger';
+import undoable from 'redux-undo'; // high order reducer to track history
 
 // import { debounce } from '@/utils/debounce';
 
+// TODO: redo/undo as wrap for individual slice/reducer.
 const reducers = combineReducers({
+  counter: undoable(counterReducer),
   todo: todoReducer,
-  counter: counterReducer,
 });
 
 export const store = configureStore({

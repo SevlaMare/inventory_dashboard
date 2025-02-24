@@ -2,19 +2,31 @@
 // template to use redux store
 // ---------------------------
 import { useSelector, useDispatch } from '../../redux/hook'; // get / set
-import { increment, decrement, reset } from './counterSlice'; // ACTIONs
+import {
+  increment,
+  decrement,
+  reset,
+  incrementByAmount,
+  selectCount,
+} from './counterSlice';
+import { ActionCreators } from 'redux-undo';
 
 export function Counter() {
   // const [count, setCount] = useState(0);
   // setCount = is defined in the SLICER as initial state.
   // count equivalent, can be acessed by:
-  const count = useSelector(state => state.counter.counter); // Access the counter state
-
+  // const count = useSelector(state => state.counter.present.counter); // Access the counter state
+  const count = useSelector(selectCount); // Access the counter state
   const dispatch = useDispatch();
+  const incrementAmount = 2;
 
   const handleIncrement = () => dispatch(increment());
   const handleDecrement = () => dispatch(decrement());
   const handleReset = () => dispatch(reset());
+  const handleIncrementByAmount = () =>
+    dispatch(incrementByAmount(Number(incrementAmount) || 0));
+  const handleRedo = () => dispatch(ActionCreators.redo());
+  const handleUndo = () => dispatch(ActionCreators.undo());
 
   return (
     <div className='flex flex-col items-center justify-center bg-gray-100 border-solid border-2 m-2'>
@@ -22,8 +34,12 @@ export function Counter() {
       <div className='text-5xl font-semibold mb-4'>{count}</div>
       <div className='flex space-x-4'>
         <Btn callback={handleIncrement} name='Increment' />
+        <Btn callback={handleIncrementByAmount} name='IncrementBy' />
         <Btn callback={handleDecrement} name='Decrement' />
         <Btn callback={handleReset} name='Reset' />
+
+        <Btn callback={handleUndo} name='Undo' />
+        <Btn callback={handleRedo} name='Redo' />
       </div>
     </div>
   );

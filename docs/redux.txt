@@ -1,3 +1,8 @@
+IV - making new action on a existing reducer
+  check the initial state properties
+  create the new action, and export it at <name>Sloce.actions.
+
+----------
 III - making a new feature
 1 create the feature component, inject in a page.
   optional don't use redux yet. make it work then extract.
@@ -44,3 +49,15 @@ II - persist store
 concepts
   IMMUTABILITY: every change on state, generate a new object, not a modified one.
     since every new state is a whole new obj, it can be used to keep a history stack.
+--------------
+undo/redo feature
+  1# ez mode: full state copy on history. obs drop redo on new change.
+  some actions can be undoable? (has to be skipped in history)
+
+  btns undo/redo
+  1 store > wrap the slice Reducer, with highorder reducer that tracks the history
+  2 slicer > export selector with the new path:
+    state.counter.counter becomes
+    state.counter.present.counter
+  3 jsx > dispatch ActionsCreator instead of actions
+-------------
