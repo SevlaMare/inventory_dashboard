@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchRetry } from '@/utils/fetch';
 
+// TODO: retry, debounce, thler
 export function useData<T>(endpoint: string): {
   data: T[];
   loading: boolean;
@@ -11,6 +12,7 @@ export function useData<T>(endpoint: string): {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // TODO: must be react query, no direct api calls! (handle cache, sync etc...)
     const callApi = async () => {
       try {
         const responseData: T[] = await fetchRetry(endpoint);

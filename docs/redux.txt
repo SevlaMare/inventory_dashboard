@@ -61,3 +61,10 @@ undo/redo feature
     state.counter.present.counter
   3 jsx > dispatch ActionsCreator instead of actions
 -------------
+RTK vs zustand -> 
+enforces a min organization
+has debbug
+-------------
+async calls with SAGA middleware (why? yield!)
+  pass saga instance as a middleware to redux store
+  

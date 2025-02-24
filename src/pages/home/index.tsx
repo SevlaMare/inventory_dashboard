@@ -7,8 +7,6 @@ export function Home() {
     <>
       <Menu />
       <main className='serif'>
-        {/* TODO: bug theme is flashing */}
-        <h1>welcome</h1>
         <Counter />
         <TodoList />
       </main>

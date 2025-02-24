@@ -26,7 +26,7 @@ export default {
     },
     // typography
     fontSize: {
-      // ex text-xl
+      // text-xl
       xs: ['9px', { lineHeight: '24px', letterSpacing: '-0.03em' }],
       sm: ['12px', { lineHeight: '24px', letterSpacing: '-0.03em' }],
       lg: ['14px', { lineHeight: '24px', letterSpacing: '-0.03em' }],

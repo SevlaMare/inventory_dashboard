@@ -1,6 +1,6 @@
-// ---------------------------
-// template to use redux store
-// ---------------------------
+// ------------------------------------
+// demo to use redux RTK with undo/redo
+// ------------------------------------
 import { useSelector, useDispatch } from '../../redux/hook'; // get / set
 import {
   increment,
@@ -10,6 +10,9 @@ import {
   selectCount,
 } from './counterSlice';
 import { ActionCreators } from 'redux-undo';
+
+import { Btn } from '@/components/atoms/btn';
+import { Title } from '@/components/atoms/title';
 
 export function Counter() {
   // const [count, setCount] = useState(0);
@@ -27,43 +30,27 @@ export function Counter() {
     dispatch(incrementByAmount(Number(incrementAmount) || 0));
   const handleRedo = () => dispatch(ActionCreators.redo());
   const handleUndo = () => dispatch(ActionCreators.undo());
+  const handleCleanHis = () => dispatch(ActionCreators.clearHistory());
 
   return (
     <div className='flex flex-col items-center justify-center bg-gray-100 border-solid border-2 m-2'>
       <Title name='Counter' />
       <div className='text-5xl font-semibold mb-4'>{count}</div>
-      <div className='flex space-x-4'>
-        <Btn callback={handleIncrement} name='Increment' />
-        <Btn callback={handleIncrementByAmount} name='IncrementBy' />
-        <Btn callback={handleDecrement} name='Decrement' />
-        <Btn callback={handleReset} name='Reset' />
+      <div className='flex flex-col space-x-4'>
+        <div>
+          <Btn callback={handleIncrement} name='Increment' />
+          <Btn callback={handleIncrementByAmount} name='IncrementBy' />
+          <Btn callback={handleDecrement} name='Decrement' />
+          <Btn callback={handleReset} name='Reset' />
+        </div>
 
-        <Btn callback={handleUndo} name='Undo' />
-        <Btn callback={handleRedo} name='Redo' />
+        <div className='mt-2'>
+          <Title name='undo / redo' />
+          <Btn callback={handleUndo} name='Undo' />
+          <Btn callback={handleRedo} name='Redo' />
+          <Btn callback={handleCleanHis} name='clean' />
+        </div>
       </div>
     </div>
   );
-}
-
-interface BtnProps {
-  name: string;
-  callback: () => void;
-}
-interface TitleProps {
-  name: string;
-}
-
-function Btn({ name, callback }: BtnProps) {
-  return (
-    <button
-      onClick={callback}
-      className='px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition'
-    >
-      {name}
-    </button>
-  );
-}
-
-function Title({ name }: TitleProps) {
-  return <h1 className='text-3xl font-bold mb-4'>{name}</h1>;
 }
