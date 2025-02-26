@@ -14,6 +14,9 @@ import { Logger } from '@/service/logger';
 // undo
 import undoable from 'redux-undo'; // high order reducer to track history
 
+// rtk query slices resources
+import { productApi } from '@/service/api/products';
+
 // saga for async
 import createSagaMiddleware from 'redux-saga';
 
@@ -23,6 +26,7 @@ const setupStore = () => {
   const reducers = combineReducers({
     counter: undoable(counterReducer, undoConfig),
     todo: todoReducer,
+    [productApi.reducerPath]: productApi.reducer,
   });
 
   const sagaMiddleware = createSagaMiddleware();
@@ -32,7 +36,11 @@ const setupStore = () => {
     reducer: reducers,
     preloadedState: getStorageItem(reduxStoreKey), // fallback is intialState from reducers
     middleware: getDefaultMiddleware => {
-      return getDefaultMiddleware({ thunk: false }).concat(sagaMiddleware);
+      return (
+        getDefaultMiddleware({ thunk: true })
+          // .concat(sagaMiddleware)
+          .concat(productApi.middleware)
+      );
     },
   });
 

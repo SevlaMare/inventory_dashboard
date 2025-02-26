@@ -1,7 +1,7 @@
 [x] state management: rtk
 [x] autosave = persist store
 [x] undo / redo setup
-  [] async middlware
+  [] async middlware + rtk query (+debounce/retry) = integration
   [] mock api calls + intercept x api dev
   [] draggable todos
 

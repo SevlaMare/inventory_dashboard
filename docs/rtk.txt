@@ -1,0 +1,11 @@
+RTK query
+1 setup: api must live on provider (redux store or apiProvider)
+  one provider per app, so no apiProvider, use the reduxStore!
+  inject the API and the API middleware in the store config.
+
+2 create an slice to consume a resource/endpoint
+  using createApi function from toolkit (eg services/api/products/products.ts)
+  attach the slice(createApi instance) in the combineReducers
+    [productApi.reducerPath]: productApi.reducer,
+  apply the middleware
+    .concat(productApi.middleware);
