@@ -51,6 +51,7 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.16",
+    "eslint-plugin-import": "^2.31.0",
     "prettier": "3.2.5",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0",

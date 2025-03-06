@@ -1,9 +1,10 @@
 import { combineReducers, applyMiddleware } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 
-// slices
+// SLICEs
 import { todoReducer } from '@/features/todo/todoSlice';
 import { counterReducer } from '@/features/counter/counterSlice';
+import { counterReducer2 } from '@/features/counter2/counterSlice';
 
 // app config
 import { reduxStoreKey } from '@/utils/constants';
@@ -26,6 +27,7 @@ const setupStore = () => {
   const reducers = combineReducers({
     counter: undoable(counterReducer, undoConfig),
     todo: todoReducer,
+    counter2: counterReducer2,
     [productApi.reducerPath]: productApi.reducer,
   });
 

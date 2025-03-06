@@ -1,3 +1,5 @@
+*slicers with same name will conflict, with overwrite.
+
 RTK query
 1 setup: api must live on provider (redux store or apiProvider)
   one provider per app, so no apiProvider, use the reduxStore!
@@ -9,3 +11,7 @@ RTK query
     [productApi.reducerPath]: productApi.reducer,
   apply the middleware
     .concat(productApi.middleware);
+
+error:
+Actions must be plain objects. Use custom middleware for async actions.
+(thunk is disable, or saga is not setup properly)
