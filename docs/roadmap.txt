@@ -1,0 +1,5 @@
+- [] query cache (RTK)
+- [x] central store
+- [x] undo
+- [] PWA
+- [] sync google drive for FS persist
